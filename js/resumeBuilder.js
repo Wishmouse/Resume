@@ -47,17 +47,19 @@ var projects ={
     {
       "dates" : "June - August 2014",
       "title" : "Commercial Launch of the FarmIQ System",
+      "images" : "images/197x148.gif",
       "description" : "Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Proin eget tortor risus. Proin eget tortor risus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula."
      },
      {"dates"  : "December  2015",
      "title" : "3rd party user module",
+     "image" : "images/197x148.gif",
      "description" : "Curabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Proin eget tortor risus. Proin eget tortor risus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula."
     },
     {"dates"  : "June - December 2010",
      "title" : "Marketing Origon Nursery",
+     "image" : "images/197x148.gif",
      "description" : "ICurabitur aliquet quam id dui posuere blandit. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh. Proin eget tortor risus. Proin eget tortor risus. Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula."
     }
-
   ]
 
 };
@@ -77,12 +79,16 @@ var formattedDates= HTMLprojectDates.replace ("%data%", projects.projects[projec
 var formattedDescription = HTMLprojectDescription.replace ("%data%", projects.projects[project].description);
   $(".project-entry:last").append(formattedDescription);
 
+if (projects.projects[project].images.length > 0){
+
 for (image in projects.projects[project].images) {
- var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-    $(".project-entry:last").append(formattedImage);
+
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+        $(".project-entry:last").append(formattedImage);
+
     }
   }
-};
+}
 
 projects.display();
 
@@ -216,4 +222,4 @@ $(document).click(function(loc) {
 
 
 //adding the map
-$("#mapDiv").append(googleMap);
+//$("#mapDiv").append(googleMap);
