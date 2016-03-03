@@ -1,6 +1,6 @@
 
 var education = {
-  "school": [
+  "schools": [
   {
     "name": "Open Polytechnic",
     "location": "Wellington, New Zealand",
@@ -16,27 +16,26 @@ var education = {
     "date" :"2000"
   }
   ]
-};
+}
 
 function displayEducation(){
+  for (var i =0; i < education.schools.length; i++){
+    $("#education").append(HTMLschoolStart);
 
-for (var school =0; school < education.school.length; school++){
-  $("#education").append(HTMLschoolStart);
+    var formattedSchoolName= HTMLschoolName.replace ("%data%", education.schools[i].name);
+    $(".education-entry:last").append(formattedSchoolName);
 
-var formattedSchoolName= HTMLschoolName.replace ("%data%", education.school[school].name);
-  $(".education-entry:last").append(formattedSchoolName);
+    var formattedSchoolDates= HTMLschoolDates.replace ("%data%", education.schools[i].date);
+    $(".education-entry:last").append(formattedSchoolDates);
 
-var formattedSchoolDates= HTMLschoolDates.replace ("%data%", education.school[school].date);
-  $(".education-entry:last").append(formattedSchoolDates);
+    var formattedSchoolDegree= HTMLschoolDegree.replace ("%data%", education.schools[i].degree);
+    $(".education-entry:last").append(formattedSchoolDegree);
 
-var formattedSchoolDegree= HTMLschoolDegree.replace ("%data%", education.school[school].degree);
-  $(".education-entry:last").append(formattedSchoolDegree);
+    var formattedSchoolMajor= HTMLschoolMajor.replace ("%data%", education.schools[i].major);
+    $(".education-entry:last").append(formattedSchoolMajor);
 
-var formattedSchoolMajor= HTMLschoolMajor.replace ("%data%", education.school[school].major);
-  $(".education-entry:last").append(formattedSchoolMajor);
-
-  var formattedSchoolLocation= HTMLschoolLocation.replace ("%data%", education.school[school].location);
-  $(".education-entry:last").append(formattedSchoolLocation);
+    var formattedSchoolLocation= HTMLschoolLocation.replace ("%data%", education.schools[i].location);
+    $(".education-entry:last").append(formattedSchoolLocation);
   }
 };
 
@@ -77,7 +76,9 @@ var formattedDates= HTMLprojectDates.replace ("%data%", projects.projects[projec
 var formattedDescription = HTMLprojectDescription.replace ("%data%", projects.projects[project].description);
   $(".project-entry:last").append(formattedDescription);
 
-for (image in projects.projects[project].images) {
+//if (projects.projects[project].image.length < 0){
+
+  for (image in projects.projects[project].images) {
  var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
     $(".project-entry:last").append(formattedImage);
     }
